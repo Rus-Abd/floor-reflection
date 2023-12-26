@@ -245,7 +245,13 @@ class App {
           window.dataLayer.push(arguments);
         }
         gtag('js', new Date());
-        gtag('config', googleAnalyticsMeasurementId, { allow_linker: true });
+        gtag('config', googleAnalyticsMeasurementId, {
+          page_path: window.location.pathname,
+          linker: {
+            domains: ['reflection.rus-abd.com', 'rus-abd.com'], // Add your domains here
+            accept_incoming: true,
+          },
+        });
       };
     }
   }
